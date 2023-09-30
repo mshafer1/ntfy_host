@@ -5,12 +5,16 @@
 # This is pretty much how ntfy.sh is configured. To see the exact configuration,
 # see https://github.com/binwiederhier/ntfy-ansible/
 
+upstream host {
+  server ${SOCKET};
+}
+
 server {
   listen 80;
   server_name ${DOMAIN};
 
   location / {
-    proxy_pass ${SOCKET};
+    proxy_pass htpp://host/;
     proxy_http_version 1.1;
 
     proxy_buffering off;
