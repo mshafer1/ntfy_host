@@ -14,6 +14,7 @@ objects/_temp_server.yml: templates/server.yml objects/
 	$< > $@
 
 objects/etc/ntfy/server.yml: objects/_temp_server.yml
+	mkdir --parent $(dir $@)
 	cp -f $< $@
 
 clean:
