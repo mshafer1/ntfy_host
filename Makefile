@@ -8,7 +8,7 @@ all: install
 
 setup: objects/etc/ntfy/server.yml
 
-objects/_temp_server.yml: templates/server.yml
+objects/_temp_server.yml: templates/server.yml objects/
 	sed \
 	-e "s;\${DOMAIN};$(DOMAIN);g" \
 	$< > $@
