@@ -1,7 +1,7 @@
 version: "2.1"
 services:
   ntfy:
-    image: binwiederhier/ntfy
+    image: binwiederhier/ntfy:v2.7.0
     container_name: ntfy
     command:
       - serve
@@ -10,7 +10,7 @@ services:
     # user: UID:GID # optional: Set custom user/group or uid/gid
     volumes:
       - ./var/cache/ntfy:/var/cache/ntfy
-      - ./var/lib:/var/lib
+      - /run/ntfy:/var/lib/ntfy
       - ./var/log:/var/log
       - ./objects/etc/ntfy:/etc/ntfy
     restart: unless-stopped
