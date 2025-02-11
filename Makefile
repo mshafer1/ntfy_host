@@ -26,7 +26,7 @@ objects/:
 objects/install: templates/ntfy.nginx docker-compose.yml .env objects/
 	sed \
 	-e "s;\$${DOMAIN};$(DOMAIN);g" \
-	-e "s;\$${SOCKET};unix:$(dir $(abspath docker-compose.yml))var/lib/ntfy/ntfy.sock;g" \
+	-e "s;\$${PORT};$(PORT);g" \
 	$< > objects/_temp_test_config
 	
 	cp -f objects/_temp_test_config /etc/nginx/sites-enabled/$(DOMAIN)
